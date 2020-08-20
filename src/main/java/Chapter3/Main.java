@@ -1,5 +1,7 @@
 package Chapter3;
 
+import Chapter2.Apple;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -8,10 +10,20 @@ import java.util.function.Function;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        //testCallable();
-        new Main().testBrProcess();
-        new Main().testCustommBrProcess();
+        new Main().go();
+    }
+
+    private void go() throws Exception {
+        testCallable();
+        testBrProcess();
+        testCustommBrProcess();
         testExecute();
+        testRGB();
+    }
+
+    private void testRGB() {
+        TriFunction<Integer, Integer, Integer, RGB> colorFactory = RGB::new;
+        RGB rgb = colorFactory.get(200, 200, 200);
     }
 
     private static void testExecute() {
@@ -77,5 +89,10 @@ public class Main {
     @FunctionalInterface
     public interface Action<T>{
         void act();
+    }
+
+    @FunctionalInterface
+    public interface TriFunction<T, U, V, R>{
+         R get(T i, U y, V z);
     }
 }

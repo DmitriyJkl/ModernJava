@@ -34,7 +34,7 @@ public class Apple {
         return Collections.unmodifiableList(apples);
     }
 
-    enum Color{
+    public enum Color{
         GREEN,
         RED,
         YELLOW
