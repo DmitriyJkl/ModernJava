@@ -1,5 +1,6 @@
 package Chapter3;
 
+import java.util.function.DoubleFunction;
 import java.util.function.Function;
 
 public class FunctionTest {
@@ -14,5 +15,10 @@ public class FunctionTest {
         System.out.println(h.apply(1));
         Function<Integer, Integer> c = f.compose(g);//f(g(x))
         System.out.println(c.apply(1));
+        System.out.println(integrate(x -> x + 10, 3.0, 7.0));
+    }
+
+    private double integrate(DoubleFunction<Double> f, double a, double b) {
+        return (f.apply(a) + f.apply(b))*(b - a)/2.0;
     }
 }
